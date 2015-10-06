@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGTWordGameGenerator", "IGTWordGameGenerator\IGTWordGameGenerator.csproj", "{274C28A7-B257-4C21-B387-A14733E07BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGTWordGameGeneratorTests", "IGTWordGameGeneratorTests\IGTWordGameGeneratorTests.csproj", "{27FBD4C3-0B5C-48CC-A482-DEDA6C4B5F1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{274C28A7-B257-4C21-B387-A14733E07BA3} = {274C28A7-B257-4C21-B387-A14733E07BA3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGT.WordGameGenerator.Localization", "IGT.WordGameGenerator.Localization\IGT.WordGameGenerator.Localization.csproj", "{323918AC-9C7C-40A6-BAD2-9D3CCD878A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGT.WordGameGenerator.Common", "IGT.WordGameGenerator.Common\IGT.WordGameGenerator.Common.csproj", "{0F2B5514-C3D6-4E8C-AC76-0A48EBE61CA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGT.WordGameGenerator.Services", "IGT.WordGameGenerator.Services\IGT.WordGameGenerator.Services.csproj", "{777BCD2D-6541-4276-AACC-2ADD8E4AC481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGT.WordGameGenerator.Localization.Editor", "IGT.WordGameGenerator.Localization.Editor\IGT.WordGameGenerator.Localization.Editor.csproj", "{5FD0E315-49F9-4ECB-BDC8-422318A24D75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{274C28A7-B257-4C21-B387-A14733E07BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274C28A7-B257-4C21-B387-A14733E07BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274C28A7-B257-4C21-B387-A14733E07BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274C28A7-B257-4C21-B387-A14733E07BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FBD4C3-0B5C-48CC-A482-DEDA6C4B5F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FBD4C3-0B5C-48CC-A482-DEDA6C4B5F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FBD4C3-0B5C-48CC-A482-DEDA6C4B5F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FBD4C3-0B5C-48CC-A482-DEDA6C4B5F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323918AC-9C7C-40A6-BAD2-9D3CCD878A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323918AC-9C7C-40A6-BAD2-9D3CCD878A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323918AC-9C7C-40A6-BAD2-9D3CCD878A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323918AC-9C7C-40A6-BAD2-9D3CCD878A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2B5514-C3D6-4E8C-AC76-0A48EBE61CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2B5514-C3D6-4E8C-AC76-0A48EBE61CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2B5514-C3D6-4E8C-AC76-0A48EBE61CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2B5514-C3D6-4E8C-AC76-0A48EBE61CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777BCD2D-6541-4276-AACC-2ADD8E4AC481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777BCD2D-6541-4276-AACC-2ADD8E4AC481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777BCD2D-6541-4276-AACC-2ADD8E4AC481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777BCD2D-6541-4276-AACC-2ADD8E4AC481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD0E315-49F9-4ECB-BDC8-422318A24D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD0E315-49F9-4ECB-BDC8-422318A24D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD0E315-49F9-4ECB-BDC8-422318A24D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD0E315-49F9-4ECB-BDC8-422318A24D75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

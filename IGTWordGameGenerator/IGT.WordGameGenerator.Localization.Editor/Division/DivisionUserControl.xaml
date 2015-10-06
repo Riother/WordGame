@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="IGT.WordGameGenerator.Localization.Editor.Division.DivisionUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            HorizontalAlignment="Center"
+			 Margin="5">
+	<UserControl.Resources>
+		<ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+	</UserControl.Resources>
+	<Grid >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="auto"/>
+		</Grid.ColumnDefinitions>
+		<Grid x:Name="PrizeLevelGrid" Background="#ADADAD" VerticalAlignment="Top" HorizontalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+			<Border BorderBrush="Black" BorderThickness="1,1,0,1">
+				<Border Style="{StaticResource IndexBorder}">
+					<Label x:Name="DivisionLabel"
+			Style="{StaticResource IndexLabel}"
+		Content="X"/>
+				</Border>
+			</Border>
+			<Border BorderBrush="Black" BorderThickness="1,0,0,1" Grid.Row="1">
+                <Button x:Name="DeleteButton"
+                        Style="{StaticResource SmallButton}"
+                >
+                    <TextBox
+					Text="{Binding Path=CloseButton,Mode=TwoWay, FallbackValue=Delete}">
+					</TextBox>
+                </Button>
+            </Border>
+		</Grid>
+		<Border BorderBrush="Black" BorderThickness="1" Grid.Column="1">
+			<Grid x:Name="PropertiesGrid" Background="#ADADAD">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="auto"/>
+				</Grid.RowDefinitions>
+				<Grid Grid.Column="0" Grid.RowSpan="2" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox
+			Style="{StaticResource ParameterLabel}"
+			Text="{Binding Path=PrizeLevel,Mode=TwoWay,FallbackValue='Prize Level: '}"/>
+					<ComboBox Grid.Column="1" 
+			x:Name="PrizeLevel"
+			IsEnabled="False"
+			Height="25"
+			ItemsSource="{Binding Path=PrizeLevels,Mode=OneWay}" 
+			SelectedItem="{Binding Path=PrizeLevel,Mode=TwoWay}"
+            Margin="0, 0, 10, 0"/>
+				</Grid>
+				<Grid Grid.Row="0" Grid.Column="1" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox
+			Style="{StaticResource ParameterLabel}"
+			Text="{Binding Path=Multiplier, Mode=TwoWay, FallbackValue='Multiplier: '}"/>
+					<StackPanel Grid.Column="1" 
+			VerticalAlignment="Center" 
+			Orientation="Horizontal"
+			x:Name="Multipliers">
+						<RadioButton
+					Style="{StaticResource RadioButton}"
+					IsEnabled="False"
+				Content="x1"
+				IsChecked="True"/>
+                        <RadioButton
+					Style="{StaticResource RadioButton}"
+					IsEnabled="False"
+				Content="x2"/>
+                            <RadioButton
+					Style="{StaticResource RadioButton}"
+				Content="x3"
+				IsEnabled="False"/>
+					</StackPanel>
+				</Grid>
+				<Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox
+					Style="{StaticResource ParameterLabel}"
+			Text="{Binding Path=TotalValue, Mode=TwoWay, FallbackValue='Total Value: $'}"/>
+					<Label
+			Grid.Column="1"
+			Style="{StaticResource ParameterLabelRight}"
+			Content="0"/>
+				</Grid>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

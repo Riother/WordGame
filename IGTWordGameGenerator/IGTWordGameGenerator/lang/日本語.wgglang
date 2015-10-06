@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MainWindowLocalization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title>ワードゲームジェネレータ</Title>
+  <File>File</File>
+  <New>New</New>
+  <Open>Open</Open>
+  <Save>Save</Save>
+  <SaveAs>Save As…</SaveAs>
+  <PrizeLevelsPanel>
+    <Title>Prize Levels</Title>
+    <Instructions>The list of prize levels.</Instructions>
+    <AddButton>Add Prize Level</AddButton>
+    <NumberOfPrizeLevels>Number of Prize Levels:</NumberOfPrizeLevels>
+    <PrizeLevel>
+      <Value>Value: $</Value>
+      <UniqueLetterCount>Unique Letter Count: </UniqueLetterCount>
+      <CloseButton>Delete</CloseButton>
+    </PrizeLevel>
+    <ChooseUniqueLetters>Choose # of Unique Letters</ChooseUniqueLetters>
+    <Randomize>ランダム</Randomize>
+  </PrizeLevelsPanel>
+  <GameSetupPanel>
+    <Title>Game Setup</Title>
+    <Instructions>Setup game properties</Instructions>
+    <Generate>Generate</Generate>
+    <CallLetters>
+      <Title>Call Letters</Title>
+      <Instructions>Set up the number of minimum and maximum call letters.</Instructions>
+      <MaxCallLetters>Max Call Letters:</MaxCallLetters>
+      <MinCallLetters>Min Call Letters:</MinCallLetters>
+    </CallLetters>
+    <WordLists>
+      <Title>Word Lists</Title>
+      <Instructions>The file locations for the list of words.</Instructions>
+      <ValidWords>Valid Words List:</ValidWords>
+      <BannedWords>Banned Words List:</BannedWords>
+      <Browse>Browse…</Browse>
+    </WordLists>
+  </GameSetupPanel>
+  <DivisionPanel>
+    <Title>Divisions</Title>
+    <Instructions>The list of divisions</Instructions>
+    <AddButton>Add Division</AddButton>
+    <NumberOfDivisions>Number of Divisions:</NumberOfDivisions>
+    <Division>
+      <CloseButton>Delete</CloseButton>
+      <PrizeLevel>Prize Level:</PrizeLevel>
+      <Multiplier>Multiplier:</Multiplier>
+      <TotalValue>Total Value: $</TotalValue>
+    </Division>
+  </DivisionPanel>
+  <ErrorService>
+    <ErrorMessages>
+      <string>The Valid Words file does not exist! 🐶</string>
+      <string>The Banned Words file does not exist!</string>
+      <string>The word {0} exceeds the maximum word length!</string>
+      <string>The number of displayed words needs to be less than or equal to the number of prize levels</string>
+      <string>The minimum number of call letters must be greater than or equal the smallest unique letter count in Prize Levels</string>
+      <string>The maximum number of call letters must be less than the total sum of Prize Levels unique letter count</string>
+      <string>Prize Levels {0} and {1} have the same unique letter count (^_-)-☆</string>
+    </ErrorMessages>
+    <WarningMessages>
+      <string>The Divisions {0} and {1} are duplicates　§^。^§</string>
+      <string>The PrizeLevels {0} and {1} are duplicates</string>
+    </WarningMessages>
+  </ErrorService>
+</MainWindowLocalization>

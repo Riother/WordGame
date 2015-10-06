@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="IGTWordGameGenerator.PrizeLevel.PrizeLevelUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+			 HorizontalAlignment="Center"
+			 Margin="5">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid x:Name="PanelGrid" Background="#ADADAD">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Border
+		Style="{StaticResource IndexBorder}">
+                <Label
+		x:Name="PrizeLevelLabel"
+		Style="{StaticResource IndexLabel}"
+		Content="{Binding Path=Index, Mode=OneWay, Converter={StaticResource PrizeLevelDisplayConverter},FallbackValue=A}"/>
+            </Border>
+            <Grid Grid.Column="1" Style="{StaticResource ParameterGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="75"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="ValueLabel"
+			Style="{StaticResource ParameterLabel}"
+			Content="{Binding Path=Value,Mode=OneWay, FallbackValue=Value: $}"/>
+                <TextBox x:Name="Value"
+			Grid.Column="1"
+			Style="{StaticResource ParameterTextBox}"
+			Text="{Binding Path=Value, Mode=TwoWay, Converter={StaticResource StringToNumberConverter}, FallbackValue=0}"/>
+            </Grid>
+            <Grid Grid.Column="2" Style="{StaticResource ParameterGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label
+			x:Name="UniqueLetterCountLabel"
+			Style="{StaticResource ParameterLabel}"
+			Content="{Binding Path=UniqueLetterCount,Mode=OneWay, FallbackValue='Unique Letter Count:' }"/>
+                <TextBox x:Name="UniqueLetterCount"
+			Grid.Column="1"
+			Height="25"
+			Style="{StaticResource ParameterTextBox}"
+			Text="{Binding Path=UniqueLetterCount, Mode=TwoWay, Converter={StaticResource StringToNumberConverter}, FallbackValue=1}" TextChanged="UniqueLetterCount_TextChanged"/>
+            </Grid>
+            <Button Grid.Column="3"
+		x:Name="CloseButton"
+		Style="{StaticResource SmallButton}"
+		HorizontalAlignment="Center"
+		VerticalAlignment="Center"
+		Click="CloseButton_Click"
+		Content="{Binding Path=CloseButton,Mode=OneWay, FallbackValue=Delete}"/>
+        </Grid>
+    </Border>
+</UserControl>

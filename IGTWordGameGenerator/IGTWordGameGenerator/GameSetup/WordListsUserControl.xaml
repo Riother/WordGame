@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="IGTWordGameGenerator.GameSetup.WordListsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+			 HorizontalAlignment="Center"
+			 Margin="5"
+             Width="400">
+	<UserControl.Resources>
+		<ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+	</UserControl.Resources>
+	<Border BorderBrush="Black" BorderThickness="1,1,1,0">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition MaxHeight="60" MinHeight="60"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid Background="{StaticResource BlueBackground}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Label
+						Style="{StaticResource SubPanelHeader}"
+						Content="{Binding Path=Title,Mode=OneWay, FallbackValue='Word Lists'}"/>
+				<TextBlock Grid.Row="1"
+						Style="{StaticResource Instructions}"
+						Text="{Binding Path=Instructions,Mode=OneWay, FallbackValue='The word files'}"/>
+			</Grid>
+			<StackPanel Grid.Row="1" Orientation="Vertical">
+				<Border Style="{StaticResource ParameterBorder}">
+					<Grid HorizontalAlignment="Right">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="auto"/>
+							<ColumnDefinition Width="auto"/>
+						</Grid.ColumnDefinitions>
+						<Label
+								Style="{StaticResource ParameterLabelBlack}"
+								Content="{Binding Path=ValidWords, Mode=OneWay, FallbackValue='Valid Words'}"/>
+						<Grid Grid.Column="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="190"/>
+								<ColumnDefinition Width="auto"/>
+							</Grid.ColumnDefinitions>
+							<TextBox
+						x:Name="ValidWords"
+						Style="{StaticResource ParameterTextBox}"
+						Text="{Binding Path=ValidWords, Mode=TwoWay, FallbackValue=Le-goodWords}"
+						/>
+							<Button Grid.Column="1"
+						Style="{StaticResource SmallButton}"
+						Click="Word_Browse"
+						Content="{Binding Path=Browse, Mode=OneWay,FallbackValue=Browse...}"/>
+						</Grid>
+					</Grid>
+				</Border>
+				<Border Style="{StaticResource ParameterBorder2}">
+                    <Grid HorizontalAlignment="Right">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="auto"/>
+							<ColumnDefinition Width="auto"/>
+						</Grid.ColumnDefinitions>
+						<Label
+								Style="{StaticResource ParameterLabelBlack}"
+								Content="{Binding Path=BannedWords, Mode=OneWay, FallbackValue='Banned Words'}" />
+						<Grid Grid.Column="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="190"/>
+								<ColumnDefinition Width="auto"/>
+							</Grid.ColumnDefinitions>
+							<TextBox
+						x:Name="BannedWords"
+						Style="{StaticResource ParameterTextBox}"
+						Text="{Binding Path=BannedWords, Mode=TwoWay, FallbackValue=Le-bannedWords(*\'▽\')}"
+                                />
+							<Button Grid.Column="1"
+						Style="{StaticResource SmallButton}"
+						Click="Banned_Browse"
+						Content="{Binding Path=Browse, Mode=OneWay,FallbackValue=Browse...}"/>
+						</Grid>
+					</Grid>
+				</Border>
+			</StackPanel>
+		</Grid>
+	</Border>
+</UserControl>

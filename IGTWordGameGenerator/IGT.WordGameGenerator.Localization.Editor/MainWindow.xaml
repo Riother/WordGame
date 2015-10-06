@@ -1,0 +1,67 @@
+﻿<Window x:Class="IGT.WordGameGenerator.Localization.Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:GameSetup="clr-namespace:IGT.WordGameGenerator.Localization.Editor.GameSetup"
+		xmlns:PrizeLevel="clr-namespace:IGT.WordGameGenerator.Localization.Editor.PrizeLevel"
+		xmlns:Division="clr-namespace:IGT.WordGameGenerator.Localization.Editor.Division"
+        Title="{Binding Path=Title, Mode=TwoWay, FallbackValue='Word Game Generator'}" 
+		WindowStartupLocation="CenterScreen"
+		WindowState="Maximized"
+		Icon="Assets/logo.ico"
+		>
+	<Window.Resources>
+		<ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition MaxHeight="20px" MinHeight="20px"/>
+			<RowDefinition Height="60px" MinHeight="20px" MaxHeight="100px"/>
+			<RowDefinition/>
+			<RowDefinition Height="auto" MaxHeight="200" x:Name="ErrorRow"/>
+		</Grid.RowDefinitions>
+		<Menu x:Name="ToolMenu">
+			<MenuItem Header="{Binding Path=File,Mode=OneWay, FallbackValue='File'}">
+				<MenuItem Header="{Binding Path=New,Mode=OneWay, FallbackValue='New'}" Click="NewClick"/>
+				<MenuItem Header="{Binding Path=Open,Mode=OneWay,FallbackValue='Open'}" Click="OpenClick"/>
+				<MenuItem Header="{Binding Path=Save,Mode=OneWay,FallbackValue='Save'}" Click="SaveClick"/>
+			</MenuItem>
+		</Menu>
+
+		<StackPanel x:Name="WindowHeader" Orientation="Horizontal" Grid.Row="1">
+			<Image Source="Assets/logo.ico" Margin="5px"/>
+			<TextBox x:Name="Title" TextChanged="TitleTextChanged" Foreground="#007CAA" FontSize="36" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding Path=Title, Mode=TwoWay, FallbackValue='Word Game Generator'}"/>
+		</StackPanel>
+		<Grid x:Name="UserControls" Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<PrizeLevel:PrizeLevelsPanelUserControl x:Name="PrizeLevels"/>
+			<Border Grid.Column="1" BorderBrush="Black" BorderThickness="5,0,5,0">
+				<GameSetup:GameSetupUserControl x:Name="GameSetup"/>
+			</Border>
+			<Division:DivisionsPanelUserControl x:Name="Divisions" Grid.Column="2"/>
+		</Grid>
+		<Border x:Name="ErrorBoxBorder" Grid.Row="3" Style="{StaticResource ErrorBorder}" >
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition x:Name="ErrorColumn"/>
+					<ColumnDefinition x:Name="WarningColumn"/>
+				</Grid.ColumnDefinitions>
+				<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+					<StackPanel Style="{StaticResource ErrorStackPanel}" Background="White">
+						<Label x:Name="ErrorHeader" Style="{StaticResource ErrorHeader}" Content="Errors:"/>
+                        <StackPanel x:Name="Errors"/>
+                    </StackPanel>
+				</ScrollViewer>
+				<ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+					<StackPanel Style="{StaticResource ErrorStackPanel}" Background="White">
+					<Label x:Name="WarningHeader" Style="{StaticResource WarningHeader}" Content="Warnings:"/>
+					<StackPanel x:Name="Warnings"/>
+					</StackPanel>
+				</ScrollViewer>
+			</Grid>
+		</Border>
+	</Grid>
+</Window>

@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="IGTWordGameGenerator.Division.DivisionUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            HorizontalAlignment="Center"
+			 Margin="5">
+	<UserControl.Resources>
+		<ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+	</UserControl.Resources>
+	<Grid >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="auto"/>
+		</Grid.ColumnDefinitions>
+		<Grid x:Name="PrizeLevelGrid" Background="#ADADAD" VerticalAlignment="Top" HorizontalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+			<Border BorderBrush="Black" BorderThickness="1,1,0,1">
+				<Border Style="{StaticResource IndexBorder}">
+					<Label x:Name="DivisionLabel"
+			Style="{StaticResource IndexLabel}"
+		Content="{Binding Path=Division,Mode=OneWay, FallbackValue=1}"/>
+				</Border>
+			</Border>
+			<Border BorderBrush="Black" BorderThickness="1,0,0,1" Grid.Row="1">
+                <Button x:Name="DeleteButton"
+                        Style="{StaticResource SmallButton}"
+		                Content="{Binding Path=CloseButton,Mode=OneWay, FallbackValue=Delete}"
+		                Click="Close_Click"
+                />
+            </Border>
+		</Grid>
+		<Border BorderBrush="Black" BorderThickness="1" Grid.Column="1">
+			<Grid x:Name="PropertiesGrid" Background="#ADADAD">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="auto"/>
+				</Grid.RowDefinitions>
+				<Grid Grid.Column="0" Grid.RowSpan="2" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<Label
+			Style="{StaticResource ParameterLabel}"
+			Content="{Binding Path=PrizeLevel,Mode=OneWay,FallbackValue='Prize Level: '}"/>
+					<ComboBox Grid.Column="1" 
+			x:Name="PrizeLevel"
+			Height="25"
+			ItemsSource="{Binding Path=PrizeLevels,Mode=OneWay}" 
+			SelectedItem="{Binding Path=PrizeLevel,Mode=TwoWay}"
+            Margin="0, 0, 10, 0"/>
+				</Grid>
+				<Grid Grid.Row="0" Grid.Column="1" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<Label
+			Style="{StaticResource ParameterLabel}"
+			Content="{Binding Path=Multiplier, Mode=OneWay, FallbackValue='Multiplier: '}"/>
+					<StackPanel Grid.Column="1" 
+			VerticalAlignment="Center" 
+			Orientation="Horizontal"
+			x:Name="Multipliers">
+						<RadioButton x:Name="x1"
+					Style="{StaticResource RadioButton}"
+				Content="x1"
+				Checked="Multiplier_Checked"/>
+						<RadioButton x:Name="x2"
+					Style="{StaticResource RadioButton}"
+				Content="x2"
+				Checked="Multiplier_Checked"/>
+						<RadioButton x:Name="x3"
+					Style="{StaticResource RadioButton}"
+				Content="x3"
+				Checked="Multiplier_Checked"/>
+					</StackPanel>
+				</Grid>
+				<Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource ParameterGrid}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<Label
+					Style="{StaticResource ParameterLabel}"
+			Content="{Binding Path=TotalValue, Mode=OneWay, FallbackValue='Total Value: $'}"/>
+					<Label x:Name="Value"
+			Grid.Column="1"
+			Style="{StaticResource ParameterLabelRight}"
+			Content="{Binding Path=TotalValue,Mode=OneWay, FallbackValue='0'}"/>
+				</Grid>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

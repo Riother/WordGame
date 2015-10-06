@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="IGT.WordGameGenerator.Localization.Editor.GameSetup.WordListsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+			 HorizontalAlignment="Center"
+			 Margin="5"
+             Width="400">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Assets/CommonStylesDictionary.xaml"/>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="1,1,1,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="60" MinHeight="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Background="{StaticResource BlueBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBox
+						Style="{StaticResource SubPanelHeader}"
+						Text="{Binding Path=Title,Mode=TwoWay, FallbackValue='Word Lists'}"/>
+                <TextBox Grid.Row="1"
+						Style="{StaticResource Instructions}"
+						Text="{Binding Path=Instructions,Mode=TwoWay, FallbackValue='The word files'}"/>
+            </Grid>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Border Style="{StaticResource ParameterBorder}">
+                    <Grid HorizontalAlignment="Right">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+								Style="{StaticResource ParameterLabelBlack}"
+								Text="{Binding Path=ValidWords, Mode=TwoWay, FallbackValue='Valid Words'}"/>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+							Style="{StaticResource ParameterTextBox}"
+						Text="C:/ValidWords.txt"
+						/>
+                            <Button Grid.Column="1"
+						Style="{StaticResource SmallButton}"
+						>
+                                <TextBox Text="{Binding Path=Browse, Mode=TwoWay,FallbackValue=Browse...}" />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource ParameterBorder2}">
+                    <Grid HorizontalAlignment="Right">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+								Style="{StaticResource ParameterLabelBlack}"
+								Text="{Binding Path=BannedWords, Mode=TwoWay, FallbackValue='Banned Words'}" />
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+						x:Name="BannedWords"
+						Style="{StaticResource ParameterTextBox}"
+						Text="C:/BannedWords.txt"
+                                />
+                            <Button Grid.Column="1"
+						Style="{StaticResource SmallButton}"
+						>
+                                <TextBox Text="{Binding Path=Browse, Mode=TwoWay,FallbackValue=Browse...}" />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
